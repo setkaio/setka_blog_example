@@ -1,7 +1,64 @@
+<script>
+  const EDITOR_JS_URL = "<%= @setka[:editor_files][1] %>"
+  const EDITOR_CSS_URL = "<%= @setka[:editor_files][0] %>"
+  const COMPANY_CSS_URL = "<%= @setka[:theme_files][0] %>"
+  const COMPANY_JSON_URL = "<%= @setka[:theme_files][1] %>"
+  const CONTAINER = ".setka-editor-container";
+  const PUBLIC_TOKEN = "<%= @setka[:public_token] %>";
+
+  const editorCSS = document.createElement('link');
+  editorCSS.rel = 'stylesheet';
+  editorCSS.href = EDITOR_CSS_URL;
+  document.head.appendChild(editorCSS);
+
+  const companyCSS = document.createElement('link');
+  companyCSS.rel = 'stylesheet';
+  companyCSS.href = COMPANY_CSS_URL;
+  document.head.appendChild(companyCSS);
+
+  const editorJS = document.createElement('script');
+  editorJS.async = true;
+  editorJS.src = EDITOR_JS_URL;
+  editorJS.onload = initSetkaEditor;
+  document.head.appendChild(editorJS);
+
+  async function initSetkaEditor() {
+    const res = await fetch(COMPANY_JSON_URL);
+    const json = await res.json();
+
+    const config = {
+      ...json.config,
+      container: CONTAINER,
+      public_token: PUBLIC_TOKEN,
+    };
+
+    const { assets } = json;
+
+    SetkaEditor.start(config, assets);
+  }
+</script>
+
 <%= form_with model: @post do |form| %>
   <%= form.label 'Title' %><p/>
   <%= form.text_field :title %><p/>
   <%= form.label 'Body' %><p/>
-  <%= form.text_area :body %><p/>
-  <%= form.submit %>
+  <div id='body' class='setka-editor-container'></div>
+  <%= form.button 'Save', type: 'button', id: 'post_save' %>
 <% end %>
+
+<script>
+  (function() {
+    document.getElementById("post_save").addEventListener("click", function() {
+      fetch("http://localhost:3000/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json;charset=utf-8" },
+        body: JSON.stringify({ post:
+          {
+            title: document.getElementById('post_title').value,
+            body: window.SetkaEditor.getHTML()
+          }
+        })
+      });
+    });
+  })();
+</script>

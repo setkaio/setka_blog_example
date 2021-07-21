@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @setka = SetkaIntegration::Init.files
   end
 
   def show
