@@ -39,9 +39,10 @@
 </script>
 
 <%= form_with model: @post do |form| %>
-  <%= form.label 'Title' %><p/>
-  <%= form.text_field :title %><p/>
-  <%= form.label 'Body' %><p/>
+  <center><h1>New post</h1></center>
+  <%= link_to 'Back to posts', posts_path %><br/>
+  <%= form.label 'Post title' %>
+  <%= form.text_field :title %>
   <div id='body' class='setka-editor-container'></div>
   <%= form.button 'Save', type: 'button', id: 'post_save' %>
 <% end %>

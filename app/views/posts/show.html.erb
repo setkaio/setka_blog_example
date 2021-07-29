@@ -1,5 +1,7 @@
 <%= stylesheet_link_tag(@setka[:theme_files][0], media: 'all') %>
 <%= javascript_include_tag(@setka[:plugins][0]) %>
 
+<%= link_to 'Back to posts', posts_path %>
+
 <h1><center><%= @post.title %></center></h1>
 <%= sanitize @post.body %>
