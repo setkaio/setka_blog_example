@@ -1,3 +1,5 @@
-<%= @post.title %>
-<p/>
-<%= @post.body %>
+<%= stylesheet_link_tag(@setka[:theme_files][0], media: 'all') %>
+<%= javascript_include_tag(@setka[:plugins][0]) %>
+
+<h1><center><%= @post.title %></center></h1>
+<%= sanitize @post.body %>

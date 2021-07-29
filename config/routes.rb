@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :posts, except: [:create, :update]
 
   namespace :api do
-    resources :posts, only: [:show, :update]
+    resources :posts, only: [:show, :create, :update]
   end
 end
