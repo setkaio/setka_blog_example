@@ -1,11 +1,25 @@
-<table>
+<div class='container-fluid'>
   <% @posts.each do |post| %>
-    <tr>
-      <td><%= link_to post.title, post_path(post.id) %></td>
-      <td><%= link_to 'Edit', edit_post_path(post.id) %></td>
-      <td><%= link_to 'Delete', post_path(post.id), method: :delete %></td>
-    </tr>
+    <div class='row'>
+      <div class='col-md-2'><%= link_to post.title, post_path(post.id) %></div>
+      <div class='col-md-1'>
+        <%= link_to edit_post_path(post.id) do %>
+          <i class="bi-pencil"></i>
+        <% end %>
+      </div>
+      <div class='col-md-1'>
+        <%= link_to post_path(post.id), method: :delete, class: 'link-danger', data: {confirm: 'Are you sure?'} do %>
+          <i class="bi-trash"></i>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 
-  <tr><td><%= link_to 'New post', new_post_path %></td></tr>
-</table>
+  <div class='row'>
+    <div class='col-md-4'>
+      <center>
+        <%= link_to 'New post', new_post_path, class: 'btn btn-primary' %>
+      </center>
+    </div>
+  </div>
+</div>

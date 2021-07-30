@@ -39,12 +39,35 @@
 </script>
 
 <%= form_with model: @post do |form| %>
-  <center><h1>New post</h1></center>
-  <%= link_to 'Back to posts', posts_path %><br/>
-  <%= form.label 'Post title' %>
-  <%= form.text_field :title %>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-4'></div>
+      <div class='col-md-4'>
+        <h1>New post</h1>
+      </div>
+      <div class='col-md-4'></div>
+    </div>
+    <div class='row'>
+      <div class='col-md-4'></div>
+      <div class='col-md-4'>
+        <%= link_to 'Back to posts', posts_path %>
+      </div>
+      <div class='col-md-4'></div>
+    </div>
+    <div class='row'>
+      <div class='col-md-2'></div>
+      <div class='col-md-8'>
+        <div class='input-group mb-3'>
+          <span class="input-group-text" id="basic-addon1">Post title</span>
+          <%= form.text_field :title, class: 'form-control' %>
+        </div>
+      </div>
+      <div class='col-md-2'></div>
+    </div>
+  </div>
+
   <div id='body' class='setka-editor-container'></div>
-  <%= form.button 'Save', type: 'button', id: 'post_save' %>
+  <%= form.button 'Save', class: 'btn btn-primary', type: 'button', id: 'post_save' %>
 <% end %>
 
 <script>
