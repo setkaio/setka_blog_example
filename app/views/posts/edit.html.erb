@@ -23,7 +23,7 @@
   document.head.appendChild(editorJS);
 
   async function loadPostContentFromDB() {
-    const response = await fetch("http://localhost:3000/api/posts/<%= @post.id %>", {
+    const response = await fetch("/api/posts/<%= @post.id %>", {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
@@ -87,7 +87,7 @@
 <script>
   (function() {
     document.getElementById("post_save").addEventListener("click", function() {
-      fetch("http://localhost:3000/api/posts/<%= @post.id %>", {
+      fetch("/api/posts/<%= @post.id %>", {
         method: "PUT",
         headers: { "Content-Type": "application/json;charset=utf-8" },
         body: JSON.stringify({ post:
