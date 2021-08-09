@@ -82,6 +82,8 @@ GEM
     crass (1.0.6)
     erubi (1.10.0)
     execjs (2.8.1)
+    faker (2.18.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.3)
     foreman (0.87.2)
     globalid (0.4.2)
@@ -111,8 +113,6 @@ GEM
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
-    rack-mini-profiler (2.3.2)
-      rack (>= 1.2.0)
     rack-proxy (0.7.0)
       rack
     rack-test (1.1.0)
@@ -196,14 +196,14 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   bootstrap (~> 5.0.1)
   byebug
+  faker
   foreman
   listen (~> 3.3)
   puma (~> 5.0)
-  rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4)
   responders (~> 3.0)
   sass-rails (>= 6)
-  setka_integration!
+  setka_integration (~> 0.1.0)!
   spring
   sqlite3 (~> 1.4)
   tzinfo-data
