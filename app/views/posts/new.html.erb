@@ -1,10 +1,10 @@
 <script>
-  const EDITOR_JS_URL = "<%= @setka[:editor_files][1] %>";
-  const EDITOR_CSS_URL = "<%= @setka[:editor_files][0] %>";
-  const COMPANY_CSS_URL = "<%= @setka[:theme_files][0] %>";
-  const COMPANY_JSON_URL = "<%= @setka[:theme_files][1] %>";
+  const EDITOR_JS_URL = "<%= @setka.editor_files.js %>";
+  const EDITOR_CSS_URL = "<%= @setka.editor_files.css %>";
+  const COMPANY_CSS_URL = "<%= @setka.theme_files.css %>";
+  const COMPANY_JSON_URL = "<%= @setka.theme_files.json %>";
   const CONTAINER = ".setka-editor-container";
-  const PUBLIC_TOKEN = "<%= @setka[:public_token] %>";
+  const PUBLIC_TOKEN = "<%= @setka.public_token %>";
 
   const editorCSS = document.createElement('link');
   editorCSS.rel = 'stylesheet';

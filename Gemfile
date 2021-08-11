@@ -19,7 +19,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'responders', '~> 3.0'
 gem 'bootstrap', '~> 5.0.1'
 
-gem 'setka_integration', '~> 0.1.0', git: 'https://github.com/setkaio/setka_integration'
+gem 'setka_integration', '~> 0.2.0', git: 'https://github.com/setkaio/setka_integration'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
